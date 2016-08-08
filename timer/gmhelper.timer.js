@@ -132,7 +132,7 @@ GMHelper.Timer = (function() {
       fixEndtime(endtime + deltaTime);
       starttime = minStarttime;
     } else {
-      starttime = st;
+      starttime = Number(st);
     }
   };
   let fixBreaktime = function(bt) {
@@ -149,7 +149,7 @@ GMHelper.Timer = (function() {
       fixEndtime(endtime + deltaTime);
       breaktime = minBreaktimeDefault;
     } else {
-      breaktime = bt;
+      breaktime = Number(bt);
     }
   };
   let fixWorktime = function(wt) {
@@ -160,7 +160,7 @@ GMHelper.Timer = (function() {
       fixEndtime(endtime + deltaTime);
       worktime = maxWorktime;
     } else {
-      worktime = wt;
+      worktime = Number(wt);
     }
     // breaktime depends on worktime and needs an update
     fixBreaktime(breaktime);
@@ -177,7 +177,7 @@ GMHelper.Timer = (function() {
       fixWorktime(worktime + deltaTime);
       endtime = maxEndtime;
     } else {
-      endtime = et;
+      endtime = Number(et);
     }
   };
   let updateStarttime = function(st) {
@@ -222,10 +222,10 @@ GMHelper.Timer = (function() {
         localStorage.setItem(lsDay, today);
       }
       if(day == today) {
-        starttime = localStorage.getItem(lsStarttime);
-        breaktime = localStorage.getItem(lsBreaktime);
-        worktime = localStorage.getItem(lsWorktime);
-        endtime = localStorage.getItem(lsEndtime);
+        starttime = Number(localStorage.getItem(lsStarttime));
+        breaktime = Number(localStorage.getItem(lsBreaktime));
+        worktime = Number(localStorage.getItem(lsWorktime));
+        endtime = Number(localStorage.getItem(lsEndtime));
       } else {
         localStorage.setItem(lsDay, today);
         localStorage.setItem(lsStarttime, starttime);
